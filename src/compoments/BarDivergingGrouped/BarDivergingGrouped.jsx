@@ -1,5 +1,8 @@
+import { createElement, useMemo } from 'react'
 import { random, range } from 'lodash'
 import { sets } from '@nivo/generators'
+
+import { useTooltip } from '@nivo/tooltip'
 
 import { currenConverter } from '../../helpers/currencyComverter'
 
@@ -1080,16 +1083,43 @@ const divergingCommonProps = {
   ],
 }
 
+
+const CustomBarComponent = (props) => {
+  const { showTooltipFromEvent, hideTooltip } = useTooltip();
+
+  const { bar, tooltip } = props;
+  const { x, y, width, height, color, data } = bar;
+
+  const renderTooltip = useMemo(
+    () => () => createElement(tooltip, { ...bar, ...data }),
+    [tooltip, bar, data]
+  )
+
+  return (<g transform={`translate(${x}, ${y})`}>
+    <rect width={width} height={height} rx={Math.min(width, height) / 2} ry={Math.min(width, height) / 2} strokeWidth="0" stroke={color} fill={color} focusable="false" onMouseEnter={
+      (event) =>
+        showTooltipFromEvent(renderTooltip(), event)
+    }
+      onMouseMove={(event) =>
+        showTooltipFromEvent(renderTooltip(), event)
+      }
+      onMouseLeave={(event) => hideTooltip()}
+    />
+  </g>)
+}
+
+
 export function BarDivergingGrouped() {
   return (
     <div style={{ backgroundColor: '#efefef', width: '100%' }}>
       <Bar
         {...divergingCommonProps}
+        barComponent={CustomBarComponent}
         padding={0.1}
         margin={{ top: 50, right: 130, bottom: 100, left: 60 }}
         groupMode="grouped"
         innerPadding={1}
-        colors={['#97e3d5', '#61cdbb', '#29D95E', '#22F09A', '#20E6CB', '#61E620', '#f47560', '#e25c3b', '#E80727', '#F22007', '#F26407', '#E88107']}
+        colors={['#77F2FF', '#38E7FA', '#06E0F9', '#06CAE0', '#05B4C7', '#03707C', '#FCBDB6', '#F99185', '#F87B6D', '#F76555', '#F64F3C', '#7A1106']}
         valueFormat={v => currenConverter(v)}
         tooltip={({ id, value, color, label, formattedValue, data }) => {
           const categoria = data.categoria.find(item => item.modalidade === id)
