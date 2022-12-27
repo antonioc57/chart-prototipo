@@ -8,1030 +8,144 @@ import { currenConverter } from '../../helpers/currencyComverter'
 
 import { Bar } from '@nivo/bar'
 
-const keys = ['VencerAte30diasVencidosAte14dias', 'Vencer31a60dias', 'Vencer61a90dias', 'Vencer91a180dias', 'Vencer181a360dias', 'VencerAcima360dias', 'Vencido15a30dias', 'Vencido31a60dias', 'Vencido61a90dias', 'Vencido91a180dias', 'Vencido181a360dias', 'VencidoAcima360dias']
+// const keys = ['VencerAte30diasVencidosAte14dias', 'Vencer31a60dias', 'Vencer61a90dias', 'Vencer91a180dias', 'Vencer181a360dias', 'VencerAcima360dias', 'Vencido15a30dias', 'Vencido31a60dias', 'Vencido61a90dias', 'Vencido91a180dias', 'Vencido181a360dias', 'VencidoAcima360dias']
 
 
-const values = [{
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": -600000.00,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": -20000.00,
-  "Vencido91a180dias": -3900000.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": 0.0,
+const keys = ['CurtoPrazoVencer', 'MedioPrazoVencer', 'LongoPrazoVencer', 'CurtoPrazoVencido', 'MedioPrazoVencido', 'LongoPrazoVencido']
+
+
+const dados = [{
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 0.0,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -3900000.0,
+  "LongoPrazoVencido": -780.0,
   "mes": "Janeiro",
+},
+{
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 20.0,
 
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
-},
-{
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": 0.0,
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -39000.0,
+  "LongoPrazoVencido": -3400.0,
   "mes": "Fevereiro",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": 0.0,
-  "mes": "Março",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -390000.0,
+  "LongoPrazoVencido": -12090.0,
+  "mes": "Março"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Abril",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -320000.0,
+  "LongoPrazoVencido": -2300.0,
+  "mes": "Abril"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Maio",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -300000.0,
+  "LongoPrazoVencido": -0.0,
+  "mes": "Maio"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Junho",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -3900.0,
+  "LongoPrazoVencido": -100.0,
+  "mes": "Junho"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Julho",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -3000.0,
+  "LongoPrazoVencido": -1000.0,
+  "mes": "Julho"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": -200.00,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Agosto",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -300.0,
+  "LongoPrazoVencido": -10000.0,
+  "mes": "Agosto"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": -8900.00,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Setembro",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -20000.0,
+  "LongoPrazoVencido": -0.0,
+  "mes": "Setembro"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Outubro",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -39000.0,
+  "LongoPrazoVencido": -20000.0,
+  "mes": "Outubro"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": 0.0,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": 0.0,
-  "Vencido181a360dias": 0.0,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Novembro",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -3900000.0,
+  "LongoPrazoVencido": -12000.0,
+  "mes": "Novembro"
 },
 {
-  "VencerAte30diasVencidosAte14dias": 531029.63,
-  "Vencer31a60dias": 334000.54,
-  "Vencer61a90dias": 377904.94,
-  "Vencer91a180dias": 1221000.93,
-  "Vencer181a360dias": 2339389.33,
-  "VencerAcima360dias": 6491244.74,
-  "Vencido15a30dias": -1200.00,
-  "Vencido31a60dias": -7554.05,
-  "Vencido61a90dias": 0.0,
-  "Vencido91a180dias": -43000.00,
-  "Vencido181a360dias": -120.00,
-  "VencidoAcima360dias": -20000.00,
-  "mes": "Dezembro",
-  "categoria": [
-    {
-      "modalidade": "VencerAte30diasVencidosAte14dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencer91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencer181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "VencerAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido15a30dias",
-      "dominio": "Adiantamentos a depositantes",
-      "subdominio": "Adiantamentos a depositantes",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido31a60dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Cheque especial e conta garantida",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido61a90dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - com consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    },
-    {
-      "modalidade": "Vencido91a180dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito pessoal - sem consignação em folha de pagam.",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "Vencido181a360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Crédito rotativo vinculado a cartão de crédito",
-      "valorVencimento": 0.0
-    }, {
-      "modalidade": "VencidoAcima360dias",
-      "dominio": "Empréstimos",
-      "subdominio": "Capital de giro com prazo de vencimento inferior a 30 d",
-      "valorVencimento": 0.0
-    }
-  ]
+  "CurtoPrazoVencer": 531029.63,
+  "MedioPrazoVencer": 377904.94,
+  "LongoPrazoVencer": 2339389.33,
+
+  "CurtoPrazoVencido": -7554.05,
+  "MedioPrazoVencido": -300.0,
+  "LongoPrazoVencido": -79000.0,
+  "mes": "Dezembro"
 }]
 
 
-
-
 const commonProps = {
-  width: 1400,
+  width: 1000,
   height: 500,
-  margin: { top: 60, right: 110, bottom: 60, left: 80 },
+  padding: 0.1,
+  margin: { top: 50, right: 130, bottom: 100, left: 60 },
+  groupMode: "grouped",
+  innerPadding: 1,
   indexBy: 'mes',
   keys,
-  data: values,
-  padding: 0.2,
+  data: dados,
   labelTextColor: 'inherit:darker(1.4)',
   labelSkipWidth: 16,
   labelSkipHeight: 16,
@@ -1066,7 +180,7 @@ const divergingCommonProps = {
       legend: 'À Vencer',
       legendPosition: 'top-left',
       legendOrientation: 'vertical',
-      legendOffsetY: 120,
+      legendOffsetY: 65,
       legendOffsetX: -20,
     },
     {
@@ -1077,7 +191,7 @@ const divergingCommonProps = {
       legend: 'Vencido',
       legendPosition: 'bottom-left',
       legendOrientation: 'vertical',
-      legendOffsetY: 120,
+      legendOffsetY: 65,
       legendOffsetX: -20,
     },
   ],
@@ -1095,8 +209,50 @@ const CustomBarComponent = (props) => {
     [tooltip, bar, data]
   )
 
+
+  // const radius = Math.min(width, height) / 2;
+
+  const dNegative = `M${x},${y} l0,0 l-${width},0 l-0,${height} c0,${6} ${width},${6} ${width} 0`
+  const dPositive = `M${x},${y} c0,-${6} ${width},-${6} ${width} 0 l0,${height} l-${width},0 l0,-${height}`
+
+  console.log('[DEBUG]', 'data', data);
+
+  const vencidos = ['CurtoPrazoVencido', 'LongoPrazoVencido', 'MedioPrazoVencido']
+
+
+  return (
+    <path d={(() => {
+      if (vencidos.indexOf(data.id) !== -1) {
+        return dNegative
+      }
+      return dPositive
+    })()} fill={color}
+      onMouseEnter={
+        (event) =>
+          showTooltipFromEvent(renderTooltip(), event)
+      }
+      onMouseMove={(event) =>
+        showTooltipFromEvent(renderTooltip(), event)
+      }
+      onMouseLeave={(event) => hideTooltip()} />
+  )
+
+
+  // return (
+  //   <g transform={`translate(${x}, ${y})`}>
+  //     <defs>
+  //       <clipPath id="round-corner">
+  //         <rect width={width} height={height + radius} rx={radius} ry={radius} strokeWidth="0" stroke={color} fill={color}></rect>
+  //       </clipPath>
+  //     </defs>
+  //     <rect clipPath="url(#round-corner)" width={width} height={height} strokeWidth="0" stroke={color} fill={color} focusable="false"></rect>
+  //   </g>
+  // )
+
+
+
   return (<g transform={`translate(${x}, ${y})`}>
-    <rect width={width} height={height} rx={Math.min(width, height) / 2} ry={Math.min(width, height) / 2} strokeWidth="0" stroke={color} fill={color} focusable="false" onMouseEnter={
+    <rect width={width} height={height} rx={radius} ry={radius} strokeWidth="0" stroke={color} fill={color} focusable="false" onMouseEnter={
       (event) =>
         showTooltipFromEvent(renderTooltip(), event)
     }
@@ -1108,6 +264,25 @@ const CustomBarComponent = (props) => {
   </g>)
 }
 
+const CustomTooltip = ({ id, value, color, label, formattedValue, data }) => {
+  return (<div
+    style={{
+      padding: 12,
+      color,
+      background: '#ffffff',
+      borderRadius: '6px',
+      maxWidth: '220px'
+    }}
+  >
+    <span className='ft-medium'>
+      {label}:
+    </span>
+    <br />
+    <span className='ft-medium ft-wt-bold'>{formattedValue}</span>
+    <br />
+  </div>)
+}
+
 
 export function BarDivergingGrouped() {
   return (
@@ -1115,39 +290,20 @@ export function BarDivergingGrouped() {
       <Bar
         {...divergingCommonProps}
         barComponent={CustomBarComponent}
-        padding={0.1}
-        margin={{ top: 50, right: 130, bottom: 100, left: 60 }}
-        groupMode="grouped"
-        innerPadding={1}
-        colors={['#77F2FF', '#38E7FA', '#06E0F9', '#06CAE0', '#05B4C7', '#03707C', '#FCBDB6', '#F99185', '#F87B6D', '#F76555', '#F64F3C', '#7A1106']}
+        colors={['#77F2FF', '#06CAE0', '#03707C', '#FCBDB6', '#F64F3C', '#7A1106']}
         valueFormat={v => currenConverter(v)}
-        tooltip={({ id, value, color, label, formattedValue, data }) => {
-          const categoria = data.categoria.find(item => item.modalidade === id)
-          return (<div
-            style={{
-              padding: 12,
-              color,
-              background: '#222222',
-              borderRadius: '6px',
-              maxWidth: '220px'
-            }}
-          >
-            <span className='ft-medium'>
-              {label}:
-            </span>
-            <br />
-            <span className='ft-medium ft-wt-bold'>{formattedValue}</span>
-            <br />
-            <span className='ft-small ft-wt-bold'>{categoria.dominio}</span>
-            <br />
-            <span className='ft-small ft-width'>{categoria.subdominio}</span>
-          </div>)
-        }}
-
+        tooltip={CustomTooltip}
         valueScale={{ type: 'symlog' }}
-
+      // valueScale={{ type: 'linear' }}
       />
     </div >
   );
 }
+
+
+
+
+
+
+
 
